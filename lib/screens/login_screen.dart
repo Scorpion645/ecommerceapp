@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:ecommerceapp/screens/register_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -16,7 +17,7 @@ class LoginScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             //  Email textfield
-            Container(
+          Container(
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 25),
                 child: Container(
@@ -81,7 +82,8 @@ class LoginScreen extends StatelessWidget {
                                   fontSize: 18))))),
             ),
     
-            SizedBox(height: 30),
+            SizedBox(
+              height: 30),
     
             // Signup text
             Container(
@@ -89,7 +91,9 @@ class LoginScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text('Do not have an account?'),
-                  TextButton(onPressed: () {}, child: Text('Sign up',style: TextStyle(fontWeight: FontWeight.bold),))
+                  TextButton(onPressed: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => RegisterScreen()));
+                  }, child: Text('Sign up',style: TextStyle(fontWeight: FontWeight.bold),))
                 ],
               ),
             )
