@@ -35,11 +35,11 @@ class RegisterScreen extends StatelessWidget {
                 ),
               ),
             ),
-        
+
             SizedBox(
               height: 20,
             ),
-        
+
             //  Password textfield
             Container(
               child: Padding(
@@ -58,12 +58,12 @@ class RegisterScreen extends StatelessWidget {
                                   contentPadding:
                                       EdgeInsets.symmetric(horizontal: 20)))))),
             ),
-        
-             SizedBox(
+
+            SizedBox(
               height: 20,
             ),
-        
-               //  Confirm password
+
+            //  Confirm password
             Container(
               child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 25),
@@ -81,11 +81,11 @@ class RegisterScreen extends StatelessWidget {
                                   contentPadding:
                                       EdgeInsets.symmetric(horizontal: 20)))))),
             ),
-        
+
             SizedBox(
               height: 20,
             ),
-        
+
             // Register Button
             Container(
               child: Padding(
@@ -102,10 +102,9 @@ class RegisterScreen extends StatelessWidget {
                                   fontWeight: FontWeight.bold,
                                   fontSize: 18))))),
             ),
-        
-            SizedBox(
-              height: 30),
-        
+
+            SizedBox(height: 30),
+
             // Signup text
             Container(
               child: Row(
@@ -114,7 +113,10 @@ class RegisterScreen extends StatelessWidget {
                   Text('Already have an account?'),
                   TextButton(
                       onPressed: () {
-                        Navigator.push(context, MaterialPageRoute(builder: (context) => LoginScreen()));
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => RegisterScreen()));
                       },
                       child: Text(
                         'Sign in',
