@@ -122,7 +122,7 @@ class HomeScreen extends StatelessWidget {
             itemBuilder: ((context, index) {
               return GestureDetector(
                 onTap: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => DetailsScreen()));
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => DetailsScreen(plant: plants[index])));
                 },
                 child: GridTile(
                   footer: GridTileBar(

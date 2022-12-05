@@ -1,3 +1,4 @@
+import 'package:ecommerceapp/screens/details_screen.dart';
 import 'package:ecommerceapp/screens/home_screen.dart';
 import 'package:ecommerceapp/screens/login_screen.dart';
 import 'package:ecommerceapp/screens/register_screen.dart';
