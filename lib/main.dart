@@ -1,8 +1,7 @@
-import 'package:ecommerceapp/screens/details_screen.dart';
+import 'package:ecommerceapp/provider/cart.dart';
 import 'package:ecommerceapp/screens/home_screen.dart';
-import 'package:ecommerceapp/screens/login_screen.dart';
-import 'package:ecommerceapp/screens/register_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,10 +13,12 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return ChangeNotifierProvider(
+    create: (BuildContext context) {
+    return Cart();
+    },
+    child: MaterialApp(
       home: HomeScreen(),
-    );
+    ));
   }
 }
-
-
