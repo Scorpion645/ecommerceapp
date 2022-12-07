@@ -1,10 +1,12 @@
 import 'package:ecommerceapp/data/data.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import '../constants/colors.dart';
+import '../provider/cart.dart';
 
 class DetailsScreen extends StatefulWidget {
-  final Plant plant;
+  final Item plant;
 
   DetailsScreen({super.key, required this.plant});
 
@@ -45,7 +47,9 @@ class _DetailsScreenState extends State<DetailsScreen> {
                   ),
                 ),
                 IconButton(
-                    onPressed: () {}, icon: Icon(Icons.add_shopping_cart))
+                    onPressed: () {
+                      // Consumer<Cart>(builder: (context, Carrrrt, child) => Carrrrt.selectedProducts.add(Cart.addProduct),)
+                    }, icon: Icon(Icons.add_shopping_cart))
               ]),
               Padding(
                 padding: const EdgeInsets.only(right: 11.0),
