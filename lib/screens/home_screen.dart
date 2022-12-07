@@ -2,19 +2,15 @@
 
 import 'package:ecommerceapp/constants/colors.dart';
 import 'package:ecommerceapp/data/data.dart';
-import 'package:ecommerceapp/provider/cart.dart';
 import 'package:ecommerceapp/screens/details_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final theProvider = Provider.of<Cart>(context);
-
-    return (Scaffold(
+    return Scaffold(
       drawer: Drawer(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -88,7 +84,7 @@ class HomeScreen extends StatelessWidget {
                     child: Padding(
                       padding: const EdgeInsets.all(4.0),
                       child: Text(
-                        '${Cart().selectedItems.length}',
+                        '8',
                         style: TextStyle(
                             color: Colors.green[900],
                             fontWeight: FontWeight.bold,
@@ -117,7 +113,7 @@ class HomeScreen extends StatelessWidget {
       body: Padding(
         padding: const EdgeInsets.all(14.0),
         child: GridView.builder(
-            itemCount: items.length,
+            itemCount: plants.length,
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 2,
               crossAxisSpacing: 10,
@@ -126,16 +122,12 @@ class HomeScreen extends StatelessWidget {
             itemBuilder: ((context, index) {
               return GestureDetector(
                 onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) =>
-                              DetailsScreen(plant: items[index])));
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => DetailsScreen(plant: plants[index])));
                 },
                 child: GridTile(
                   footer: GridTileBar(
                     leading: Text(
-                      '  ${items[index].price}',
+                      '  ${plants[index].price}',
                       style: TextStyle(
                         color: AppBarGreen,
                         fontWeight: FontWeight.bold,
@@ -143,11 +135,7 @@ class HomeScreen extends StatelessWidget {
                     ),
                     title: Text(""),
                     trailing: IconButton(
-                        onPressed: () {
-                          theProvider.Addd(items[index]);
-                          print(theProvider.selectedItems.length);
-                          print(items[index].imageUrl);
-                        },
+                        onPressed: () {},
                         icon: Icon(
                           Icons.add,
                           color: AppBarGreen,
@@ -155,26 +143,12 @@ class HomeScreen extends StatelessWidget {
                   ),
                   child: ClipRRect(
                       borderRadius: BorderRadius.circular(20),
-                      child: Image.asset(items[index].imageUrl,
+                      child: Image.asset(plants[index].imageUrl,
                           fit: BoxFit.cover)),
                 ),
               );
             })),
       ),
-    ));
+    );
   }
 }
-
-
-// Consumer<Cart>(
-//                       builder: (BuildContext context, value, Widget? child) {
-//                         return IconButton(
-
-
-
-  // trailing: IconButton(
-  //                       onPressed: () {
-  //                         // theProvider.Addd(items[index]);
-  //                         // print(theProvider.selectedItems.length);
-  //                         print(items[index].imageUrl);
-  //                       },
